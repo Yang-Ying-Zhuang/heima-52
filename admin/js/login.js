@@ -13,6 +13,8 @@ $(function () {
       success: (res) => {
         //  console.log(res);
         if (res.code === 200) {
+          // 设置本地存储token数据
+          localStorage.setItem("token-52",res.token)
           $(".modal-body>p").text(res.msg)
           $('#myModal').modal('show')
           $('#myModal').on('hidden.bs.modal', function (e) {
@@ -24,6 +26,7 @@ $(function () {
         }
       }
     })
+
     $(".btn-primary").on("click",function(){
       $('#myModal').modal('hide')
     })
