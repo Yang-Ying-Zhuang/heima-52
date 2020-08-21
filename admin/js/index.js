@@ -41,5 +41,11 @@ $(function () {
     $(this).addClass("active").siblings().removeClass("active")
   })
  
+  // 退出
+  $(".logout").on("click",function(){
+    // console.log(1);
+     window.location = "./login.html"
+     localStorage.removeItem("token-52")
+  })
 
 })
