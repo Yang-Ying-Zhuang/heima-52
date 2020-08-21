@@ -24,4 +24,22 @@ $(function () {
     }
   })
 
+  // 完成首页切换
+  $(".level01").on("click",function(){
+    $(this).addClass("active").siblings().removeClass("active")
+    if($(this).next().hasClass("level02")){
+      $(".level02").slideToggle()
+      $(this).find("b").toggleClass("rotate0")
+    }else{
+      $(".level02").slideUp()
+      $(".level01").find("b").removeClass("rotate0")
+      $(".level02>li").removeClass("active")
+    }
+  })
+  // 单机子项菜单，切换样式
+  $(".level02 > li").on("click",function(){
+    $(this).addClass("active").siblings().removeClass("active")
+  })
+ 
+
 })
