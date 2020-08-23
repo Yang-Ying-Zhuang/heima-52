@@ -5,10 +5,12 @@ $(function () {
   // 请求参数：无
   $.ajax({
     type: "get",
-    url: "http://localhost:8080/api/v1/admin/user/detail",
+    // url: "http://localhost:8080/api/v1/admin/user/detail",
+    url: BigNew.user_detail,
     headers: {
       Authorization: localStorage.getItem("token-52")
     },
+    dataType: "json",
     success: (res) => {
       //  console.log(res);
       if (res.code === 200) {
@@ -19,7 +21,14 @@ $(function () {
         $("#inputEmail4").val(res.data.password)
       }
     },
-    dataType: "json"
+    // 捕获错误
+    // error: function (err) {
+    //   // console.log(err);
+    //   if (err.statusText === "Forbidden") {
+    //     alert("未登录，请登录")
+    //     location.href = "./login.html"
+    //   }
+    // }
   })
 
   //1.给file表单元素注册onchange事件
@@ -40,26 +49,38 @@ $(function () {
   // 请求方式：post
   // 请求数据：使用formData提交
 
-// 修改
+  // 修改
   $(".btn-edit").on("click", function () {
     let data = $("#form")[0]
     let formdata = new FormData(data)
     $.ajax({
       type: "POST",
-      url: "http://localhost:8080/api/v1/admin/user/edit",
-      data:formdata,
+      // url: "http://localhost:8080/api/v1/admin/user/edit",
+      url:BigNew.user_edit,
+      data: formdata,
       processData: false,
       contentType: false,
-      headers:{
+      headers: {
         Authorization: localStorage.getItem("token-52")
       },
+      dataType: "json",
       success: function (res) {
-        console.log(res);
-        if(res.code === 200){
+        // console.log(res);
+        if (res.code === 200) {
           alert("修改成功")
+          //页面刷新
+          // window.location.reload()
+          window.parent.location.href = "./index.html"
         }
       },
-      dataType:"json"
+      // 捕获错误
+      // error: function (err) {
+      //   // console.log(err);
+      //   if (err.statusText === "Forbidden") {
+      //     alert("未登录，请登录")
+      //     location.href = "./login.html"
+      //   }
+      // }
     })
   })
 
