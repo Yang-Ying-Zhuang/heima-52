@@ -65,17 +65,17 @@
 					<form>
 						<div class="form-group">
 							<label for="exampleInputEmail1">类名名称</label>
-							<input type="email" name="name" class="form-control" id="exampleInputEmail1" placeholder="类名名称">
+							<input type="email" name="name" class="form-control" id="name" placeholder="类名名称">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">类名类别</label>
-							<input type="email" name="slug" class="form-control" id="exampleInputEmail1" placeholder="类名类别">
+							<input type="email" name="slug" class="form-control" id="slug" placeholder="类名类别">
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary">确定</button>
+					<button type="button" class="btn btn-primary primary">新增</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -87,8 +87,10 @@
 			<td>{{$value.name}}</td>
 			<td>{{$value.slug}}</td>
 			<td class="text-center">
-				<a href="javascript:void(0)" data-toggle="modal" class=" btn btn-info btn-xs">编辑</a>
-				<a href="javascript:void(0)" class="btn btn-danger btn-xs">删除</a>
+				<a href="javascript:void(0)" data-name="{{$value.name}}" data-slug="{{$value.slug}}"
+				 data-id="{{$value.id}}" class=" btn btn-info btn-xs compile">编辑</a>
+				 
+				<a href="javascript:void(0)" data-id="{{$value.id}}" class="btn btn-danger btn-xs danger">删除</a>
 			</td>
 		</tr>
 		{{/each}}
