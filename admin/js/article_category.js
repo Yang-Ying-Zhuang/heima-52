@@ -39,7 +39,9 @@ $(function () {
   // 请求参数：
   $(".primary").on("click", function () {
     // console.log($(this).text());
+    // 获取自定义属性id
     let id = $(this).attr("id")
+    // 获取文本内容再判断，新增
     if ($(this).text() == "新增") {
       // console.log($('form').serialize());
       $.ajax({
@@ -58,6 +60,7 @@ $(function () {
       })
     } else {
       // console.log(11);
+      //编辑
       $.ajax({
         type: "post",
         url: BigNew.category_edit,
@@ -73,15 +76,11 @@ $(function () {
       })
     }
 
-
-
   })
 
   // 编辑
   $("tbody").on("click", ".compile", function () {
     //  console.log(11);
-
-    // data.attr("编辑")
     $(".modal-title").text("编辑分类")
     $(".primary").text("编辑")
     // 调用模态框
@@ -96,11 +95,11 @@ $(function () {
 
   })
 
-  // 删除
+
+  // 删除结构
   // 请求地址： / admin / category / delete
   // 请求方式： post
   // 请求参数：
-
   $("tbody").on("click", ".danger", function () {
     // console.log(11);
     // 获取自定义属性id
