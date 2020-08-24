@@ -15,6 +15,8 @@
 	<script src="./libs/template-web.js"></script>
 	<!-- 请求数据 -->
 	<script src="./js/http.js"></script>
+	<!-- 插件页数 -->
+	<script src="./libs/bootstrappaginator/bootstrap-paginator.min.js"></script>
 	<!-- 文章列表 -->
 	<script src="./js/article_list.js"></script>
 	<!-- 文章列表管理 -->
@@ -77,6 +79,7 @@
 
 			</table>
 			<div class="row text-center">
+				 <ul class="pagination"></ul>
 			</div>
 		</div>
 	</div>
@@ -85,7 +88,7 @@
 	<script id="wenZhang" type="text/html">
 		<option value="">所有分类</option>
 		{{each data}}
-			<option>{{$value.name}}</option>
+			<option value="{{$value.id}}">{{$value.name}}</option>
 		  <!-- <option>奇趣事</option>
 		       <option>会生活</option>
 		       <option>爱旅行</option> -->
