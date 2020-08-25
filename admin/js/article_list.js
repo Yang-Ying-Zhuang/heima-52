@@ -117,7 +117,9 @@ $(function () {
         //  console.log(res);
         if (res.code === 204) {
           alert(res.msg);
-          window.location.reload()
+          // window.location.reload()
+          // 调用
+          list()
         }
       }
     })
