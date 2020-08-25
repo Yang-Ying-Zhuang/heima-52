@@ -8,9 +8,9 @@ $(function () {
     $.ajax({
       type: "get",
       url: BigNew.category_list,
-      headers: {
-        Authorization: localStorage.getItem("token-52")
-      },
+      // headers: {
+      //   Authorization: localStorage.getItem("token-52")
+      // },
       dataType: "json",
       success: (res) => {
         // console.log(res);
@@ -56,10 +56,10 @@ $(function () {
   $("#btnSearch").on("click", function (e) {
     // 阻止默认触发
     e.preventDefault();
-    console.log($("#selCategory").val());
-    console.log($("#selStatus").val());
-      //重置页码
-      page = 1
+    // console.log($("#selCategory").val());
+    // console.log($("#selStatus").val());
+    //重置页码
+    page = 1
     // 调用
     list()
   })
@@ -91,8 +91,38 @@ $(function () {
   }
 
 
+  // 添加样式
+  // $("#release_btn").on("click",function(){
+  //   // $():第一个参数;选择器，第二个参数，document,默认是当前窗口document
+  //       $(".level02>li:eq(1)",window.parent.document).addClass("active").siblings().removeClass("active")
+  // })
 
 
+
+  // 删除文章
+  $("tbody").on("click", ".deletedanger", function () {
+    let id = $(this).data().id
+    //  console.log(id);
+    // 请求地址：/admin/article/delete
+    // 请求方式：post
+    // 请求参数：
+    $.ajax({
+      type: "post",
+      url: BigNew.article_delete,
+      data: {
+        id
+      },
+      dataType: "json",
+      success: function (res) {
+        //  console.log(res);
+        if (res.code === 204) {
+          alert(res.msg);
+          window.location.reload()
+        }
+      }
+    })
+
+  })
 
 
 

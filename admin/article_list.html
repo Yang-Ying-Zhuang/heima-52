@@ -95,7 +95,7 @@
 		{{/each}}
 	</script>
 
-	<!-- 文章列表模板 -->
+	<!-- 文章列表模板 ?id={{$value.id}} -->
 	<script id="temp" type="text/html">
 		{{each data}}
 		<tr>
@@ -105,8 +105,8 @@
 			<td class="text-center">{{$value.date}}</td>
 			<td class="text-center">{{$value.state}}</td>
 			<td class="text-center">
-				<a href="article_edit.html" class="btn btn-default btn-xs">编辑</a>
-				<a href="javascript:void(0);" class="btn btn-danger btn-xs delete">删除</a>
+				<a href="article_edit.html?id={{$value.id}}" class="btn btn-default btn-xs defaylt">编辑</a>
+				<a href="javascript:void(0);" data-id={{$value.id}} class="btn btn-danger btn-xs delete deletedanger">删除</a>
 			</td>
 		</tr>
 		{{/each}}
